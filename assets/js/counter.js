@@ -12,8 +12,8 @@
     var audio = new Audio('build/music/science_fiction_air_raid_alarm.mp3');
 
     function alarm() {
-      //randomTime = _.random(900000, 1500000);
-      randomTime = _.random(9000, 2000);
+      randomTime = _.random(1500000, 2700000);
+      //randomTime = _.random(9000, 2000); // for testing
       setTimeout(function(){
         showCounter = false;
         $(".takeAShot").show();

@@ -1,0 +1,20 @@
+{
+  "name": "take-a-shot",
+  "version": "0.0.1",
+  "description": "Make your friends take a drink randomly at some point in the night",
+  "author": "cynthia sanchez (csanchez@suse.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.10",
+    "gulp-cache": "^0.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-install": "^0.5.0",
+    "gulp-less": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-shell": "^0.5.2",
+    "gulp-uglify": "^1.4.0"
+  }
+}

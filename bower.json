@@ -1,0 +1,20 @@
+{
+  "name": "take-a-shot",
+  "version": "0.0.1",
+  "authors": [
+    "Cynthia Sanchez <csanchez@suse.com>"
+  ],
+  "description": "Make your friends take a drink randomly at some point in the night",
+  "main": [
+    "build/js/main.min.js",
+    "build/css/main.min.css"
+  ],
+  "keywords": [
+    "take shots",
+    "drink with friends"
+  ],
+  "homepage": "index.html",
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

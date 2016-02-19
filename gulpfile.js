@@ -6,19 +6,11 @@ var assets = 'assets/';
 var destination = 'build/';
 var bowerDir = 'vendors/' ;
 var serverCommand = 'python -m SimpleHTTPServer';
-var installBower = 'npm install';
-
-
-// Install bower first
-var shell = require('gulp-shell');
-gulp.task('bowerDependencies', shell.task([
-  installBower
-]))
 
 // Run Bower
 var bower = require('gulp-bower');
 
-gulp.task('bower', ['bowerDependencies'], function() { 
+gulp.task('bower', function() { 
   return bower()
     .pipe(gulp.dest(bowerDir)) 
 });
@@ -42,8 +34,9 @@ gulp.task('customeScripts', ['bower'], function() {
     .pipe(gulp.dest(destination + 'js'));
 });
 gulp.task('vendorScripts', ['bower'], function() {
-  return gulp.src(bowerDir + '**/*.min.js')
+  return gulp.src(bowerDir + '**/*min.js')
     .pipe(concat('vendor.js'))
+    .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
     .pipe(gulp.dest(destination + 'js'))
 })
@@ -69,6 +62,11 @@ gulp.task('less', ['bower'], function () {
 //     .pipe(concat('main.min.css'))
 //     .pipe(gulp.dest(destination + 'css'));
 // });
+
+gulp.task('copyMusic', ['bower'], function() { 
+  return gulp.src([assets + 'music/*']) 
+    .pipe(gulp.dest(destination + 'music'));
+});
 
 // Images optimization
 var imagemin = require('gulp-imagemin');
@@ -98,4 +96,4 @@ gulp.task('serve', shell.task([
 
 
 // Default Task
-gulp.task('default', ['bowerDependencies', 'bower', 'customeScripts', 'vendorScripts', 'images', 'less', 'watch', 'serve']);
+gulp.task('default', ['bower', 'customeScripts', 'vendorScripts', 'images', 'less', 'watch', 'serve', 'copyMusic']);
